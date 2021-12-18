@@ -7,13 +7,20 @@ Create the classic Flappy Bird game!
 def setup():
     pass
     # 1. Use the size function to set the width and height of the program
-    
+    size(550,550)
     # 2. Remove the comment (the '#') in the line below 
-    #global bg, bird, lower_pipe, upper_pipe
+    global bg, big_bird, lower_pipe, upper_pipe
     
     # 3. Use the loadImage function to inialize the bg variable with the
     # flappyBackground.jpg image 
-    
+    bg = loadImage('flappyBackground.jpg') 
+    bg.resize(550,550)
+    background(bg)
+    big_bird = Bird('bird.png', 300, 200)
+    bottom = Pipe('bottomPipe.png')
+    top = Pipe('topPipe.png')
+    reset_pipes(bottom,top)
+
     # 4. Resize the background to the width and height of the program
     
     # 5. Use the Bird class defined below to create a Bird object.
@@ -29,10 +36,14 @@ def setup():
 def draw():
     pass
     # 8. Remove the comment (the '#') in the line below
-    #global bg, bird, lower_pipe, upper_pipe
-    
+    global bg, big_bird, lower_pipe, upper_pipe
+    background(bg)
+    big_bird.update()
+    big_bird.d()
+    bottom.update
+    top.update
     # 9. Use the background function to draw the game's background
-
+    
     # 10. Find the Bird class below and follow the instructions
     # there to complete the Bird class before continuing
 
@@ -63,7 +74,14 @@ class Bird:
         self.height = ( 3 * self.width ) / 4
         self.image = loadImage(image_file)
         self.image.resize(self.width, self.height)
-        
+        self.gravity = 3
+        self.flap = 5
+    def update(self):
+        self.y += self.gravity
+        if mousePressed == True:
+            self.y -= self.flap 
+    def d(self):
+        image(self.image,self.x,self.y)
         # 11. Initialize a member variable for gravity (typically 1 to 5)
         
         # 12. Add a member variable for the distance the bird travels
