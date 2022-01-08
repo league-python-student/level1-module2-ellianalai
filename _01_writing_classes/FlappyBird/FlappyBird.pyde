@@ -9,17 +9,18 @@ def setup():
     # 1. Use the size function to set the width and height of the program
     size(550,550)
     # 2. Remove the comment (the '#') in the line below 
-    global bg, big_bird, lower_pipe, upper_pipe
+    global bg, big_bird, lower_pipe, upper_pipe, score
     
     # 3. Use the loadImage function to inialize the bg variable with the
     # flappyBackground.jpg image 
     bg = loadImage('flappyBackground.jpg') 
     bg.resize(550,550)
     background(bg)
-    big_bird = Bird('bird.png', 300, 200)
-    bottom = Pipe('bottomPipe.png')
-    top = Pipe('topPipe.png')
-    reset_pipes(bottom,top)
+    big_bird = Bird('bird.png', 100, 200)
+    lower_pipe = Pipe('bottomPipe.png')
+    upper_pipe = Pipe('topPipe.png')
+    reset_pipes(lower_pipe,upper_pipe)
+    score = 0
 
     # 4. Resize the background to the width and height of the program
     
@@ -36,12 +37,28 @@ def setup():
 def draw():
     pass
     # 8. Remove the comment (the '#') in the line below
-    global bg, big_bird, lower_pipe, upper_pipe
+    global bg, big_bird, lower_pipe, upper_pipe, score
     background(bg)
     big_bird.update()
     big_bird.d()
-    bottom.update
-    top.update
+    lower_pipe.update()
+    lower_pipe.draw()
+    upper_pipe.update()
+    upper_pipe.draw()
+    if lower_pipe.x and upper_pipe.x < 10:
+        score = score + 1
+        reset_pipes(lower_pipe,upper_pipe)
+    if intersects_pipes(big_bird, lower_pipe, upper_pipe):
+        noLoop()
+    if big_bird.y > 550:
+        noLoop()
+    if big_bird.y < 0:
+        noLoop()
+    textSize(50)
+    fill('#FC1F1F')
+    text(score,25,50)
+    
+    
     # 9. Use the background function to draw the game's background
     
     # 10. Find the Bird class below and follow the instructions
@@ -75,7 +92,7 @@ class Bird:
         self.image = loadImage(image_file)
         self.image.resize(self.width, self.height)
         self.gravity = 3
-        self.flap = 5
+        self.flap = 7
     def update(self):
         self.y += self.gravity
         if mousePressed == True:
