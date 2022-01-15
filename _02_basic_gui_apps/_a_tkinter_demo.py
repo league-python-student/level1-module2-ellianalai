@@ -35,11 +35,11 @@ class GuiAppDemo(tk.Tk):
 
         # Add a text label
         self.label = tk.Label(self, text="Welcome!!!", bg='yellow',
-                              fg='blue', font=('arial', 32, 'bold'), relief='solid')
+                              fg='blue', font=('Times New Roman', 40, 'bold'), relief='solid')
 
         # You can set the location of the label relative to the size of the window
         # The scaling will be maintained if the the app window is resized
-        self.label.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.1)
+        self.label.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.2)
 
         # Add an image to another label
         # *NOTE* you must save the image into a member variable and not a

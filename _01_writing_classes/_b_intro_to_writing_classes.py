@@ -14,8 +14,11 @@ class Student:
         self.homework_done = False
     def do_homework(self):
         self.homework_done = True
+    def go_to_school(self, start='7 am'):
 
+        return self.name + ' is leaving for school at ' + start
         pass
+
 
 
 # ================== DO NOT MODIFY THE CODE BELOW ============================
