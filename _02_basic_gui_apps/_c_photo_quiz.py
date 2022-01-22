@@ -24,7 +24,16 @@ def create_image(filename, width, height):
 #  to use those)
 
 # TODO 1) Create a new tkinter class
-
+class photo(tk.Tk):
+    def __init__(self):
+        super(). __init__()
+        self.label = tk.Label(self)
+if __name__ == '__main__':
+    pic = photo()
+    pic.geometry('500x500')
+    score = 0
+    img = create_image('carrots.jpg', 200,200)
+    img.photo_label.configure(image=img_object)
     # TODO 2) Create a constructor
 
         # TODO 3) call Tk's constructor

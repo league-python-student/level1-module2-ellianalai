@@ -35,7 +35,7 @@ class GuiAppDemo(tk.Tk):
 
         # Add a text label
         self.label = tk.Label(self, text="Welcome!!!", bg='yellow',
-                              fg='blue', font=('Times New Roman', 40, 'bold'), relief='solid')
+            fg='blue', font=('Times New Roman', 40, 'bold'), relief='solid')
 
         # You can set the location of the label relative to the size of the window
         # The scaling will be maintained if the the app window is resized

@@ -21,7 +21,20 @@ def create_image(filename, width, height):
 
 # TODO 1) Make a new class and put tk.Tk in the parenthesis, for example:
 #  FirstApp(tk.TK):
-
+class app(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.label = tk.Label(self, text = 'Hello:)',bg= 'green', fg = 'yellow'
+                              , font = ('Times New Roman', 35, 'bold'), relief = 'solid')
+        self.label.place(relx=0.1, rely=0.1, relwidth=0.8, relheight=0.2)
+        self.pic = create_image('python.png',200,200)
+        self.label_pic = tk.Label(self,image=self.pic)
+        self.label_pic.place(x= 100,y=200)
+if __name__ == '__main__':
+    first_app = app()
+    first_app.title('My App!!')
+    first_app.geometry('450x450')
+    first_app.mainloop()
     # TODO 2) Make a constructor
 
         # TODO 3) Call the Tk class's constructor
