@@ -41,7 +41,7 @@ class ButtonsAndTextFields(tk.Tk):
         #   <Enter>         - the mouse has entered the object
         #   <Leave>         - the mouse has left the object
         #   <Motion>        - the mouse has moved within the object
-        self.text_field.bind('<KeyPress>', self.on_text_entry)
+        self.text_field.bind('<ButtonPress>', self.on_text_entry)
 
         # bind() can also be used in conjunction with the command= option
         self.button.bind('<ButtonRelease>', self.on_button_release)
